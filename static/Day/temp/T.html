@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            html body {
+                height: 100%;
+                color: red;
+                line-height: 1.8;
+                margin: 0;
+                padding: 0;
+            }
+           /* Create a Parallax Effect */
+            .bgimg-1, .bgimg-2, .bgimg-3 {
+              background-attachment: fixed;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+            /* First image (Logo. Full height) */
+            .bgimg-1 {
+              background-image: url('https://www.w3schools.com/w3images/parallax1.jpg');
+              min-height: 900px;
+            }
+
+            /* Second image (Portfolio) */
+            .bgimg-2 {
+              background-image: url("https://www.w3schools.com/w3images/parallax2.jpg");
+              min-height: 400px;
+            }
+
+            /* Third image (Contact) */
+            .bgimg-3 {
+              background-image: url("https://www.w3schools.com/w3images/parallax3.jpg");
+              min-height: 400px;
+            }
+
+            
+            .content{
+                max-width: 980px;
+                margin-left: auto;
+                margin-right: auto;               
+            }
+            .pd{
+                box-sizing: border-box;
+                padding: 10px;
+            }
+            .text_center{
+                text-align: center!important;
+            }
+            .rows{
+                overflow: hidden;
+            }
+            .cols{
+                float: left;
+                width: 50%;
+            }
+
+            .padding_64{
+                padding-top: 64px;
+                padding-bottom: 64px;
+            }
+            .sect{
+                margin-top: 16px;
+                margin-bottom: 16px;
+            }
+            .quarter{
+                float: left;
+                background-color: gray;
+                width: 25%;
+            }
+            .img{
+                max-width: 100%;
+                height: auto;
+            }
+            .out_bar{
+                color: #000;
+                background-color: #f1f1f1;
+            } 
+            .in_bar{
+                color: white;
+                background-color: black;
+            }
+            .logobox{
+                background-color: aquamarine;
+                width: 400px;
+                text-align: center;
+                position: absolute;
+                transform: translate(-50%,-50%);
+                top: 50%;
+                left: 50%;
+            }
+            .b{
+                text-align: center;
+                position: absolute;
+                transform: translate(-50%,-50%);
+                top: 50%;
+                left: 50%;
+                color: white;
+            }
+            .a{
+                float: left;
+                width: 10%;
+                text-align: center;
+                padding: 8px 16px;
+            }
+            .img_cols{
+                width: 25%;
+                float: left;
+                box-sizing: border-box;
+                padding: 10px;
+            
+            }
+            @media only screen and (max-device-width: 1600px) {
+                .bgimg-1, .bgimg-2, .bgimg-3 {
+                    background-attachment: scroll;
+                    min-height: 400px;
+                }
+                .content{
+                    max-width: 980px;
+                    margin-left: auto;
+                    margin-right: auto; 
+                }
+            }
+            @media only screen and (max-width: 1366px) {
+                .bgimg-1, .bgimg-2, .bgimg-3 {
+                    background-attachment: scroll;
+                    min-height: 400px;
+                }
+                .content{
+                    max-width: 758px;
+                    margin-left: auto;
+                    margin-right: auto; 
+                }
+                .quarter{
+                    float: left;
+                    background-color: gray;
+                    width: 100%;
+                }
+            }
+            @media only screen and (max-width: 768px) {
+                .bgimg-1, .bgimg-2, .bgimg-3 {
+                    background-attachment: scroll;
+                    min-height: 400px;
+                }
+                .content{
+                    max-width: 600px;
+                    margin-left: auto;
+                    margin-right: auto; 
+                }
+                .quarter{
+                    float: left;
+                    background-color: gray;
+                    width: 100%;
+                }
+                .hide{
+                    display: none;
+                    
+                }
+                .cols{
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+   
+        <!-- content -->
+        <div class="content padding_64">
+            <h2 class="text_center">ABOUT ME</h2>
+            <h3 class="text_center"> <i>I love photocraphy</i> </h3>
+            <p>
+                "We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            </p>
+            
+            <div class="rows">
+                <div class="cols text_center pd"> 
+                    <p> 
+                        <b>My Name </b>
+                    </p>
+                    <br>
+                    <img src="1.jpg" class="img" height="333" width="500">
+                </div>
+                
+                <div class="cols pd hide">
+                    <p>
+                        Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <h3 class="text_center"> 
+                    Im really good at : 
+                </h3>
+                <div>
+                    <div> Photography </div>
+                    <div class="out_bar"> 
+                        <div class="in_bar text_center" style="width: 90%"> 90%</div>
+                    </div>
+                    
+                </div>
+                <div> 
+                    <div>Web Design</div>
+                    <div class="out_bar">
+                        <div class="in_bar text_center" style="width: 10%"> 10%</div>
+                    </div>
+                </div>
+                <div>
+                    <div> photo shop </div>
+                    <div class="out_bar"> 
+                        <div class="in_bar text_center" style="width: 90%"> 90%</div>
+                    </div>
+                </div>   
+                
+            </div>
+        </div>
+        <div class="row text_center">
+            <div class="quarter pd">
+                <div> 14+ </div>
+                Partners
+            </div>
+            <div class="quarter pd">
+                <div> 55+ </div>
+                Projects Done
+            </div>
+            <div class="quarter pd" >
+                <div> 89+ </div>
+                Happy Clients
+            </div>
+            <div class="quarter pd">
+                <div> 150+ </div>
+                Mettings
+            </div>
+            
+        </div>
+ 
+    </body>
+</html>
+
+
+
+
+

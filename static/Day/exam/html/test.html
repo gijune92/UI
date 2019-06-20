@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        <style>
+            div { 
+                float: left;
+                width: 100%;
+                
+            }
+            div ul{
+                height: 50px;
+            }
+            li{
+                float: left;
+                width: calc( 100% / 4 );
+            }
+            .menu a{cursor:pointer;}
+            .menu .hide{display:none;}
+            .gnb3 {display: visible;}
+            
+        </style>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            /*
+            $(".menu>a").click(function(){
+                var submenu = $(this).next("ul");
+
+                // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+                if( submenu.is(":visible") ){
+                    submenu.slideUp();
+                }else{
+                    submenu.slideDown();
+                }
+                }).mouseover(function(){
+                
+                $(this).next("ul").slideDown();
+            });
+            
+            // menu class 중에 두번째 있는 menu 의 하위에 있는 a태그에 클릭 이벤트를 발생시킨다.
+            $(".menu:eq(1)>a").click();
+            */
+            /*
+            $("li").filter(":odd").hide().end().filter(":even").hover( function () {
+                $(this).toggleClass("active").next().stop(true, true).slideToggle(); 
+            }); 
+            */
+            /*
+            $(".menu a").hover(function(a){
+                console.log(a);
+
+                if(a.type == "mouseenter"){
+                    $(".hide").toggle.
+                }
+                else{
+                    $(".hide").slideUp();
+                }
+
+                //console.log("!!!!!!!!!!li hover!!!!!!!!!!!!!", $(this))
+                //$(this).next("ul").css("display: visible;");
+                //$(".meny .hide").eq().attr("display", "visible");
+                //$(".hide").show();
+                
+            });
+            */
+            /*
+            $(".menu > li").on('mouseover', function(){
+                $(this).find('a').addClass('hover');
+                $(this).find('.menu.hide').show();
+            }).on('mouseout', function(){
+                $(this).find('a').removeClass('hover');
+                $(this).find('.hide').hide();
+            });
+            */
+            
+            $("#gnb").mouseover(function(a){
+                console.log(a);
+                $("#gnb1").toggle(function(){
+                    $(".hide").slideDown();
+                })
+            })
+            
+            
+            
+            
+        });
+        </script>
+    </head>
+    <body>
+        <div>
+            <ul id="gnb">
+                <li id="gnb1" class="menu">
+                <a><img src="" alt="상위메뉴이미지1"/></a>
+                    <ul class="hide">
+                        <li class="gnb3">메뉴1-1</li>
+                        <li class="gnb3">메뉴1-2</li>
+                        <li class="gnb3">메뉴1-3</li>
+                        <li class="gnb3">메뉴1-4</li>
+                        <li>메뉴1-5</li>
+                        <li>메뉴1-6</li>
+                    </ul>
+                </li>
+                <li id="gnb2" class="menu">
+                <a><img src="" alt="상위메뉴이미지2"/></a>
+                    <ul class="hide">
+                        <li class="gnb21">메뉴2-1</li>
+                        <li class="gnb22">메뉴2-2</li>
+                        <li class="gnb23">메뉴2-3</li>
+                        <li class="gnb24">메뉴2-4</li>
+                        <li>메뉴1-5</li>
+                        <li>메뉴1-6</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </body>
+    
+</html>

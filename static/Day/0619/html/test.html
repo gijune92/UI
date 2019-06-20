@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SPA</title>
+        <link rel="stylesheet" href="../css/test.css">
+        <style>
+            .visible{
+                display: visible;
+            }
+            .none{
+                display: none;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script>
+            /*******************************************************
+             * [ 게시판 ]
+             * - 기능 정의 ( 5가지 + α )
+             *   1. 작성하기 (게시물)
+             *      - 사용자 입력 데이터를 저장소에 처리
+             *   2. 목록보기
+             *      - 데이터 저장소에 있는 데이터를 목록으로 화면 처리
+             *   3. 자세히 보기? 게시물 보기
+             *      - 목록중 하나의 데이터(글)을 선택한 내용만 화면 처리
+             *   4. 수정하기
+             *      - 선택한 데이터의 내용을 수정하는 화면에 표시 및 수정하여 저장.
+             *   5. 삭제하기
+             *      - 목록 또는 자세히 보기에서 선택한 하나의 글을 삭제하기.
+             *   6. 검색하기
+             *      - 목록 글에서 입력받은 키워드를 찾아서 화면에 표현하기.
+            ********************************************************/
+            
+            $(document).ready(function(){
+                if(location.search != ""){                    
+                    var param = location.search.replace("?","");
+                    //console.log(param);
+                    var params = param.split("&");
+                    //console.log(params);
+                    var row = {};
+                    for(var i = 0; i < params.length; i++){
+                        var map = params[i].split("=");
+                        row[map[0]] = map[1];
+                    }
+                    
+                    var list = [];
+                    var list_a = {};
+                    
+                    //list[list.length] = JSON.parse(localStorage.getItem("list"));
+                    if(localStorage.length != 0){
+                        list_a= JSON.parse(localStorage.getItem("list"));
+                        console.log("aaa" , row);
+                        console.log("listaaaa" , list_a);
+                        list = list_a;
+                        list[list.length] = row;
+                        localStorage.setItem("list", JSON.stringify(list));    
+                    }
+                    else{
+                        list[list.length] = row;
+                        localStorage.setItem("list", JSON.stringify(list));    
+                    }
+                }
+                
+                /*
+                // 글 목록
+              $("#btn_contentsList").click(function(e){
+                if(localStorage.length != 0){
+                    console.log("1ajlddasfasdfasdkhflajkdshflj");
+                    $("#set").addClass("visible");
+                    $("#set").removeClass("none");
+                    var html = "";
+                    var contents_list = [];
+
+                    contents_list = JSON.parse(localStorage.getItem("list"));
+                    //console.log(lista.length);
+                    html = "<ul>";
+                    //console.log(localStorage.getItem(list).length);
+                    
+                    for(var i=0; i < contents_list.length; i++){
+                        html += '<li id=' +'"'+i+'"'+'>' + contents_list[i]["title"] + '</li>';
+                    }
+                    html += "</ul>";
+                    console.log(html);
+                    //$("section").find("#set").empty().append(html);
+                    $("section>ul").append(html);
+                  }
+               });
+                
+                $("#set").find("li").click(function(){
+                //$("#set").children("li").click(function(e){
+                    console.log("lkjdahgalkjdghlaksdg");
+                    var findtxt = $(this).text();
+                    console.log(findtxt);
+                    var contents_list = [];
+                    contents_list = JSON.parse(localStorage.getItem("list"));
+                    
+                    for(var i=0; i<contents_list.length; i++){
+                        if(contents_list[i]["title"] == findtxt){
+                           
+                            //console.log("title : " ,contents_list[i]["title"], "contents : ", contents_list[i]["contents"] );
+                            
+                            console.log($('#'+i).append('<div style="height:50%; color=white; background-color:red;"> 제목 : ' + contents_list[i]["title"] +'내용 :  '+ contents_list[i]["contents"] + '</div>'));
+                        }
+                    }
+                });
+                */
+            });
+                
+        </script>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <!--<li id=btn_contentsList href="test3.html">목록</li>-->
+                <li><a id=btn_newcontents href="test3.html">목록</a></li>
+                <li><a id=btn_newcontents href="test2.html">신규</a></li>
+            </ul>
+        </nav>
+        <section class="contents">
+            <ul id=set class="none">
+            </ul>
+        </section>
+        <footer></footer>
+    </body>
+</html>

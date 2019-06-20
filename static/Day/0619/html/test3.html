@@ -1,0 +1,38 @@
+        <style>
+            .visible{
+                display: visible;
+            }
+            .none{
+                display: none;
+            }
+        </style> 
+<link rel=stylesheet href="../css/commons.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+console.log("1ajlddasfasdfasdkhflajkdshflj");
+$("#set").addClass("visible");
+$("#set").removeClass("none");
+var html = "";
+var contents_list = [];
+
+contents_list = JSON.parse(localStorage.getItem("list"));
+//console.log(lista.length);
+html = "<ul>";
+//console.log(localStorage.getItem(list).length);
+
+for(var i=0; i < contents_list.length; i++){
+    html += '<li id=' +'"'+i+'"'+'><a href=test4.html?'+contents_list[i]["title"]+'>' + contents_list[i]["title"] + '</a></li>';
+}
+html += "</ul>";
+console.log(html);
+//$("section").find("#set").empty().append(html);
+$("section>ul").append(html);
+});
+</script>
+<body>
+<section class="contents">
+    <ul id=set class="none">
+    </ul>
+</section>
+</body>

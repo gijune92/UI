@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Script </title>
+        <script>
+            
+            console.log("HG");
+            
+            var b ={
+                a : function(){
+                    return "a";
+                },
+                b : {
+                    b1 : function(){return "b1"},
+                    b2 : function(){return "b2"}
+                },
+                c : function(){
+                    return "c";
+                }
+            };
+            
+            var board = {
+                user : [],
+                input : function(id){
+                    var index = board.user.length;
+                    board.user[index] = id;
+                    
+                }
+            }
+            board.input("현석");
+            
+            function print(){
+                for(var i = 0; i< board.user.length; i++){
+                    console.log(board.user[i]);
+                }
+            }
+            var board2 = {
+                input : board.input,
+                print : print
+            }
+        </script>
+        <script>
+            function color_event(){
+                
+                //document.getElementsByTagName("body")[0].style.backgroundColor =(document.getElementsByTagName("body")[0].style.backgroundColor == 'red') ? ('white' : 'red');
+                
+                document.getElementsByTagName("body")[0].style.backgroundColor = 
+                (document.getElementsByTagName("body")[0].style.backgroundColor == "red")?"white":"red";
+                
+
+                /*
+                if(document.getElementsByTagName("body")[0].style.backgroundColor == "red"){
+                    document.getElementsByTagName("body")[0].style.backgroundColor=white;    
+                }
+                else{
+                    document.getElementsByTagName("body")[0].style.backgroundColor=a;
+                }
+                */
+            }
+        
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick="color_event()" >RED</button>
+        <button type="button" onclick="color_event()" >YELLOW</button>
+    </body>
+</html>

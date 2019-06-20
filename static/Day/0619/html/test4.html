@@ -1,0 +1,53 @@
+<meta charset="utf-8">
+<link rel=stylesheet href="../css/commons.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+    var param = location.search.replace("?","");
+    console.log(param);
+    var contents_list = [];
+    var html = "";
+    var btn_html = "";
+    var index = -1;
+    contents_list = JSON.parse(localStorage.getItem("list"));
+    console.log(contents_list);
+    
+    for(var i=0; i<contents_list.length; i++){
+        if(contents_list[i]["title"] == param){
+            console.log("akjsdhfkjasdh")
+            //console.log("title : " ,contents_list[i]["title"], "contents : ", contents_list[i]["contents"] );
+
+            //console.log($('#'+i).append('<div style="height:50%; color=white; background-color:red;"> 제목 : ' + contents_list[i]["title"] +'내용 :  '+ contents_list[i]["contents"] + '</div>'));
+            //html = $("#contents").append('<div style="height:500px; color=white; background-color:white;"> <p>제목 : ' + contents_list[i]["title"] +'</p><p>내용 :  '+ contents_list[i]["contents"] + '</p></div>');
+            index=i;
+            html = '<div style="height:100px; color=white; background-color:white;"> <p>제목 : ' + contents_list[i]["title"] +'</p><p>내용 :  '+ contents_list[i]["contents"] + '</p></div>';
+            break;
+        };
+        
+        
+            
+    }
+    //html +='<input type=button value="수정하기"><input type=button value="목록으로">';
+    
+    btn_html = '<li><a href="test5.html?'+param+'">수정하기</a></li> <li id="delete"><a href="test.html">삭제하기</li> <li><a href=test.html>목록으로</a></li>';
+    console.log(btn_html);
+    $("#contents").append(html);
+    $("#btn_c").append(btn_html);
+    
+    $("#delete").click(function(){
+        contents_list.splice(index, 1);
+        localStorage.setItem("list", JSON.stringify(contents_list));
+        alert("삭제되었습니다.");
+    })
+});
+</script>
+<body>
+    <div id="contents">
+    
+    </div>
+    <ul id="btn_c">
+        
+    </ul>
+</section>
+</body>

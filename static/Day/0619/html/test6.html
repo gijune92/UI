@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="../css/commons.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var param = location.search.replace("?","");
+        var contents_list = [];
+        var html = "";
+        var btn_html = "";
+        var index = -1;
+        contents_list = JSON.parse(localStorage.getItem("list"));
+        
+        for(var i=0; i<contents_list.length; i++){
+            if(contents_list[i]["title"] == param){
+                $("#title").val(contents_list[i]["title"]);
+                $("#contents").val(contents_list[i]["contents"]);
+                index = i;
+                break;
+            };
+        }
+        
+        $("#update").click(function(){
+            console.log("jkdsahgjkahdlsjkfh")
+            console.log($("#title").val());
+            console.log($("#contents").val());
+            contents_list[index]["title"] = $("#title").val();
+            contents_list[index]["contents"] = $("#contents").val();
+            
+            localStorage.setItem("list", JSON.stringify(contents_list));
+            alert("수정되었습니다.");
+        })
+
+    });
+</script>
+<body>
+    
+    <h1> 글 수정하기 </h1>
+    <form>
+        <input type=text id=title>
+        <input type=text id=contents>
+        <ul>
+            <li id=update><a href=test.html> 수정하기</a></li>
+            <li id=cancel><a href=test.html>취소</a></li>
+        </ul>
+        
+    </form>
+</body>

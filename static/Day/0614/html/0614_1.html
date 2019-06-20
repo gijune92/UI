@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> 0614_1 </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+        </script>
+        <script>
+            
+                $(document).ready(function(){
+                    $("body").css("background-color","red");
+                    
+                    $("body").unbind("click", (function(){
+                        console.log("clicked");
+                    }));
+                    $("body").off().on("click", (function(){
+                        console.log("clicked");
+                    }));
+                    
+                });
+            
+            //즉시 실행 함수
+            
+            /*
+                $(function(){
+                    $("body").css("background-color", "red");
+                });
+                (function(a){console.log(a);})("1");
+            */
+            /*
+                function Ev(){
+                    $("body").css("background-color","red");
+                }                  
+                $("body").ready(Ev);
+            */
+            
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

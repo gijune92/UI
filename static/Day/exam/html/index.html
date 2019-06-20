@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Layout </title>
+        <link rel="stylesheet" href="../css/index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("ul").hover(function(){
+                    $(this).find("ul>li").fadeToggle(300);
+                })
+                
+                /*
+                $("li").hover(function(){
+                  $(this).find("ul>li").fadeToggle(300);
+                })
+                */
+            });
+        </script>
+    </head>
+    <body>
+        <header style="height: 300px;">
+        <ul>
+            <li><a href="#">회사소개</a>
+                <ul>
+                    <li><a href="#">신한WAY</a></li>
+                    <li><a href="#">미션</a></li>
+                    <li><a href="#">핵심가치</a></li>
+                    <li><a href="#">행동규범</a></li>
+                </ul>
+            </li>
+            <li><a href="#">채용정보</a>
+                <ul>
+                    <li><a href="#">신입</a></li>
+                    <li><a href="#">경력</a></li>
+                </ul>
+            </li>
+            <li><a href="#">인재DB</a>
+                <ul>
+                    <li><a href="#">인재DB</a></li>
+                </ul>
+            </li>
+            <li><a href="#">신한SNS</a>
+                <ul>
+                    <li><a href="#">신한SNS</a></li>
+                </ul>
+            </li>
+        </ul>
+        </header>
+        <section> </section>
+        <footer> </footer>
+    </body>
+</html>

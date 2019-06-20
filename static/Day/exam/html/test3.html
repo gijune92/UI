@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JQuery - 3</title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <style>
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            ul li{
+                float:left;
+                width: 150px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                background-color: #ff0000;
+            }
+            ul li a{
+                text-decoration: none;
+                color: #fff;
+                
+            }
+            ul li li {
+                background-color: #ff0000;
+                color : #fff;
+                display: none;
+            }
+            ul li li:hover {
+                background-color: #555;
+            }
+            
+            ul li li a{
+                text-decoration: none;
+                color:#fff;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+               $('li').hover(function(){
+                   $(this).find('ul>li').stop().fadeToggle(300);
+               })
+            });
+            
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li><a href="">page1</a>
+                <ul>
+                    <li><a href="">Link1</a></li>
+                    <li><a href="">Link2</a></li>
+                    <li><a href="">Link3</a></li>
+                    <li><a href="">Link4</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="">page2</a>
+                <ul>
+                    <li><a href="">Link1</a></li>
+                    <li><a href="">Link2</a></li>
+                    <li><a href="">Link3</a></li>
+                    <li><a href="">Link4</a></li>
+                </ul>
+            </li>
+            <li><a href="">page3</a>
+                <ul>
+                    <li><a href="">Link1</a></li>
+                    <li><a href="">Link2</a></li>
+                    <li><a href="">Link3</a></li>
+                    <li><a href="">Link4</a></li>
+                </ul>
+            </li>
+            <li><a href="">page4</a>
+                <ul>
+                    <li><a href="">Link1</a></li>
+                    <li><a href="">Link2</a></li>
+                    <li><a href="">Link3</a></li>
+                    <li><a href="">Link4</a></li>
+                </ul>
+            </li>
+            <li><a href="">page5</a>
+                <ul>
+                    <li><a href="">Link1</a></li>
+                    <li><a href="">Link2</a></li>
+                    <li><a href="">Link3</a></li>
+                    <li><a href="">Link4</a></li>
+                </ul>
+            </li>
+        </ul>
+        
+    </body>
+</html>
