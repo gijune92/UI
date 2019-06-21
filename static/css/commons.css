@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html, body{
   padding: 0;
   margin: 0;
@@ -33,3 +34,40 @@ header{
   height: 150px;
   background-color: yellow;
 }
+=======
+html, body{
+  padding: 0;
+  margin: 0;
+}
+div{
+  box-sizing: border-box;
+}
+header{
+  height: 20vh;
+  background-color: #818181;
+}
+.main_container {
+  width: 100%;
+  height: 100vh;
+  background-color: #616161;
+  padding: 0px;
+  margin: 0px;
+}
+.main_container .nav_container{
+  float: left;
+  width: 20%;
+  height: 100vh;
+  background-color: #717171;
+}
+.main_container .section_container {
+  float: left;
+  width: 80%;
+  height: 100vh;
+  background-color: red;
+}
+.main_container .section_container .check_container{
+  width: 100%;
+  height: 150px;
+  background-color: yellow;
+}
+>>>>>>> 610014354c14f98e7f2745c9fe9980c57f697cc6
