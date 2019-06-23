@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,53 +6,80 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./css/commons.css">
   <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script>
+
+  </script>
 </head>
 <body>
   <header>
-
+    <h1 style="color: white;">LOGO</h1>
   </header>
   <div class="main_container">
     <div class="nav_container">
       <nav>
-
+        <span>BOM</span>
+        <ul>
+          <li><a href="./Main.html"> 조회 </a></li>
+          <li><a href="./bom_add.html"> 등록 </a></li>
+        </ul>
       </nav>
     </div>
     <div class="section_container">
+      <div class="text_container">
         <h2>Main</h2>
-        <div class="check_container">
-
+      </div>
+      <div class="check_container">
+        <div class="select_container">
+          <div class="inner">
+            <p style="text-align: center; margin : 0; padding: 0;">대분류 :</p>
+            <select id="main_cate" name="main_cate">
+              <option value="1">111</option>
+              <option value="2">222</option>
+              <option value="3">333</option>
+            </select>
+          </div>
+          <div class="inner">
+            <p style="text-align: center; margin : 0; padding: 0;">중분류 :</p>
+            <select id="mid_cate" name="mid_cate">
+            </select>
+          </div>
+          <div class="inner">
+            <p style="text-align: center; margin : 0; padding: 0;">소분류 :</p>
+            <select id="small_cate" name="small_cate">
+            </select>
+          </div>
         </div>
+        <!--
+        <div class="btn_container">
+          <button type="button" name="button">조회</button>
+        </div>
+      -->
+      </div>
+      <div class="table_container">
+        <table id = "data_table">
+          <thead>
+            <tr>
+              <th>No</td>
+              <th>Value 1.</td>
+              <th>Value 2.</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><a>1</a></td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./css/commons.css">
-  <title>Document</title>
-</head>
-<body>
-  <header>
-
-  </header>
-  <div class="main_container">
-    <div class="nav_container">
-      <nav>
-
-      </nav>
-    </div>
-    <div class="section_container">
-        <h2>Main</h2>
-        <div class="check_container">
-
-        </div>
-    </div>
-  </div>
-</body>
-</html>
->>>>>>> 610014354c14f98e7f2745c9fe9980c57f697cc6
