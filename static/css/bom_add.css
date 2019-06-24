@@ -27,9 +27,9 @@ html, body{
   margin-left: 5%;
 }
 
-.aa{ display: block; }
-.bb{ display: none; }
-.cc{ display: none;}
+#aa{ display: block; }
+#bb{ display: none; }
+#cc{ display: none;}
 
 .title_content span{
   padding-right: 20px;
