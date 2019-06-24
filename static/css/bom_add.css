@@ -1,0 +1,85 @@
+html, body{
+  padding: 0;
+  margin: 0;
+}
+.title_outer_container{
+  width: 90%;
+  height: 70%;
+  padding-left: 10%;
+  display: table;
+}
+
+.title_inner_container{
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding: 30px;
+}
+.title_content{
+  display: inline-block;
+  width: 100%;
+  padding-top: 10px;
+}
+.data_container{
+  width: 90%;
+  height: 60%;
+  background-color: yellow;
+  margin-left: 5%;
+}
+
+.aa{ display: block; }
+.bb{ display: none; }
+.cc{ display: none;}
+
+.title_content span{
+  padding-right: 20px;
+}
+
+.a{
+  float: left;
+  width: 20%;
+}
+.b{
+  float: left;
+  height: 20px;
+  width: 80%;
+}
+.b input{
+    width: calc(95% + 10px);
+    float: left;
+}
+.c{
+  float: left;
+  width: 80%;
+}
+.d{
+  float: left;
+  margin-left: 10px;
+  width: 15%;
+}
+button{
+  width: 100px;
+}
+
+.contents fieldset .out{
+  height: 50px;
+  padding-top: 15px;
+  border-bottom: 1px solid red;
+}
+.outer_container{
+  background-color: green;
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+  display: table;
+}
+.inner_container{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.contents{
+  display: inline-block;
+  width: 50%;
+
+}

@@ -5,10 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./css/commons.css">
+  <link rel="stylesheet" href="./css/bom_add.css">
   <title>Document</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script>
+    $(document).ready(function(){
+      $("#aa").css("display","block");
+      $("#bb").css("display","none");
+      $("#cc").css("display","none");
 
+      $("#main_cate").change(function(){
+        if($("#main_cate Option:selected").val() == 0){
+          var html = "";
+          $("#mid_cate").empty().append(html);
+          $("#small_cate").empty().append(html);
+          $("#aa").css("display","block");
+          $("#bb").css("display","none");
+          $("#cc").css("display","none");
+        }
+        else if($("#main_cate Option:selected").val() == 1){
+          console.log("1111");
+          var html = '<option value=0> 추가 </option>';
+          html += '<option value=1> TV </option>';
+          html += '<option value=2> 휴대폰 </option>';
+          $("#mid_cate").empty().append(html);
+          $("#aa").css("display","none");
+          $("#bb").css("display","block");
+          $("#mid_cate").change(function(){
+            if($("#mid_cate Option:selected").val() == 0){
+              var html = "";
+              $("#small_cate").empty().append(html);
+            }
+            else if($("#mid_cate Option:selected").val() == 1){
+              console.log("1");
+              var html = '<option value=0> 추가 </option>';
+              html += '<option value=1> LCD패널 </option>';
+              html += '<option value=2> 메인보드 </option>';
+              $("#small_cate").empty().append(html);
+              $("#bb").css("display","none");
+              $("#cc").css("display","block");
+            }
+            else if($("#mid_cate Option:selected").val() == 2){
+              console.log("2");
+              var html = '<option value=0> 추가 </option>';
+              html += '<option value=1> 스피커 </option>';
+              html += '<option value=2> 버튼 </option>';
+              $("#small_cate").empty().append(html);
+              $("#bb").css("display","none");
+              $("#cc").css("display","block");
+            }
+          });
+        }
+        else if($("#main_cate Option:selected").val() == 2){
+          console.log("dkjlashflajkshdlk");
+          var html = '<option value=0> 추가 </option>';
+          html += '<option value=1> 의자 </option>';
+          html += '<option value=2> 책상 </option>';
+          $("#mid_cate").empty().append(html);
+          $("#mid_cate").change(function(){
+            if($("#mid_cate Option:selected").val() == 0){
+              var html = "";
+              $("#small_cate").empty().append(html);
+            }
+            else if($("#mid_cate Option:selected").val() == 1){
+              console.log("1");
+              var html = '<option value=0> 추가 </option>';
+              html += '<option value=1> 나무의자 </option>';
+              html += '<option value=2> 접의식의자 </option>';
+              $("#small_cate").empty().append(html);
+            }
+            else if($("#mid_cate Option:selected").val() == 2){
+              console.log("2");
+              var html = '<option value=0> 추가 </option>';
+              html += '<option value=1> 원목책상 </option>';
+              html += '<option value=2> 합판책상 </option>';
+              $("#small_cate").empty().append(html);
+            }
+          });
+        }
+      });
+
+
+    });
   </script>
 </head>
 <body>
@@ -27,7 +105,202 @@
     </div>
     <div class="section_container">
       <!-- 등록 관련 select  -->
+      <div class="text_container">
+        <h2>등록</h2>
+      </div>
+      <div class="check_container">
+        <div class="select_container">
+          <div class="inner">
+            <p style="text-align: center; margin : 0; padding: 0;">대분류 :</p>
+            <select id="main_cate" name="main_cate">
+              <option value="0">추가</option>
+              <option value="1">전자</option>
+              <option value="2">가구</option>
+            </select>
+          </div>
+          <div class="inner">
+            <p style="text-align: center; margin : 0; padding: 0;">중분류 :</p>
+            <select id="mid_cate" name="mid_cate">
+            </select>
+          </div>
+          <div class="inner">
+            <p style="text-align: center; margin : 0; padding: 0;">소분류 :</p>
+            <select id="small_cate" name="small_cate">
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="data_container">
+        <div class="">
+
+        </div>
+        <!-- 대분류 -->
+          <div class="outer_container">
+            <div class="inner_container">
+              <div id="aa">
+              <div class="contents">
+                <fieldset>
+                  <legend> 대분류 </legend>
+                  <form action="" method="post">
+                    <div class="out" style="border-top: 1px solid red;">
+                      <div class="a">
+                        <label for="code" style="width:100%;">품명</label>
+                      </div>
+                      <div class="b">
+                        <input type="text" id="code" >
+                      </div>
+                    </div>
+                    <div class="out">
+                      <div class="a">
+                        <label for="code" style="">품목코드</label>
+                      </div>
+                      <div class="b">
+                        <input type="text" id="code" >
+                      </div>
+                    </div>
+                    <div class="out">
+                        <button >등록</button>
+                        <button >취소</button>
+                    </div>
+                  </form>
+                </fieldset>
+              </div>
+              </div>
+                <!-- 중분류 -->
+                <div id="bb">
+                <div class="contents">
+                <fieldset>
+                  <legend> 중분류 </legend>
+                  <form action="" method="post">
+                    <div class="out" style="border-top: 1px solid red;">
+                      <div class="a">
+                        <label for="code" style="width:100%;">품명</label>
+                      </div>
+                      <div class="b">
+                        <input type="text" id="code" >
+                      </div>
+                    </div>
+                    <div class="out">
+                      <div class="a">
+                        <label for="code" style="">품목코드</label>
+                      </div>
+                      <div class="b">
+                        <input type="text" id="code" >
+                      </div>
+                    </div>
+                    <div class="out">
+                      <div class="a">
+                        <label for="standard">규격</label>
+                      </div>
+                      <div class="c">
+                        <input type="text" name="standard" class="c">
+                        <select class="d" name="">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="out">
+                      <div class="a">
+                        <label for="standard">단위</label>
+                      </div>
+                      <div class="c">
+                        <input type="text" name="standard" class="c">
+                        <select class="d" name="">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="out">
+                        <button >등록</button>
+                        <button >취소</button>
+                    </div>
+                  </form>
+                </fieldset>
+
+                </div>
+                </div>
+                <!-- 소분류 -->
+                <div id="cc">
+                <div class="contents">
+                  <fieldset>
+                    <legend> 소분류 </legend>
+                    <form action="" method="post">
+                      <div class="out" style="border-top: 1px solid red;">
+                        <div class="a">
+                          <label for="code" style="width:100%;">품명</label>
+                        </div>
+                        <div class="b">
+                          <input type="text" id="code" >
+                        </div>
+                      </div>
+                      <div class="out">
+                        <div class="a">
+                          <label for="code" style="">품목코드</label>
+                        </div>
+                        <div class="b">
+                          <input type="text" id="code" >
+                        </div>
+                      </div>
+                      <div class="out">
+                        <div class="a">
+                          <label for="code" style="">소요수량</label>
+                        </div>
+                        <div class="b">
+                          <input type="text" id="code" >
+                        </div>
+                      </div>
+                      <div class="out">
+                        <div class="a">
+                          <label for="code" style="">재고수량</label>
+                        </div>
+                        <div class="b">
+                          <input type="text" id="code">
+                        </div>
+                      </div>
+                      <div class="out">
+                        <div class="a">
+                          <label for="standard">규격</label>
+                        </div>
+                        <div class="c">
+                          <input type="text" name="standard" class="c">
+                          <select class="d" name="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="out">
+                        <div class="a">
+                          <label for="standard">단위</label>
+                        </div>
+                        <div class="c">
+                          <input type="text" name="standard" class="c">
+                          <select class="d" name="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="out">
+                          <button >등록</button>
+                          <button >취소</button>
+                      </div>
+                    </form>
+                  </fieldset>
+                </div>
+                </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 </body>
 </html>
