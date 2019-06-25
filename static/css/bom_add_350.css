@@ -1,0 +1,59 @@
+
+h2 {
+  font-size: 1.5rem;
+}
+header{
+  min-height: 60px;
+}
+/*-- Title Layout --*/
+.main_container .section_container .text_container{
+  width: 80%;
+  height: 5%;
+  margin: 1% 10%;
+  box-sizing: border-box;
+  text-align: center;
+}
+.main_container .nav_container nav ul li{
+  float: left;
+  text-align: center;
+  width: 40%;
+  border: 2px solid white;
+  box-sizing: border-box;
+  background-color: wheat;
+  margin-left: 6.6%;
+  margin-top: 2.5vh;
+}
+/*--Cate layout--*/
+.main_container .section_container {
+  float: left;
+  width: 100%;
+  height: 90%;
+  background-color:  #ebebe0;
+  min-height: 390px;
+}
+.contents fieldset {
+
+}
+.a{
+  float: left;
+  width: 25%;
+  font-size: 12px;
+}
+.b{
+  float: left;
+  height: 20px;
+  width: 75%;
+}
+.b input{
+    width: calc(90% + 10px);
+    float: left;
+}
+.c{
+  float: left;
+  width: 74%;
+}
+.d{
+  float: left;
+  margin-left: 10px;
+  width: 18%;
+}

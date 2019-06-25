@@ -6,19 +6,35 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./css/commons.css">
   <link rel="stylesheet" href="./css/bom_add.css">
+  <link rel="stylesheet" media="only screen and (max-width: 768px)" href="./css/bom_add_768.css">
+	<link rel="stylesheet" media="only screen and (max-width: 576px)" href="./css/bom_add_576.css">
+  <link rel="stylesheet" media="only screen and (max-width: 414px) " href="./css/bom_add_414.css">
+  <link rel="stylesheet" media="only screen and (max-width: 350px) " href="./css/bom_add_350.css">
   <title>Document</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script>
     $(document).ready(function(){
+      // Input form
       $("#aa").css("display","block");
       $("#bb").css("display","none");
       $("#cc").css("display","none");
+      // Category
+      $('#mid_cate').attr('disabled', 'true');
+      $('#mid_cate').css('background-color', 'gray');
+      $('#small_cate').attr('disabled', 'true');
+      $('#small_cate').css('background-color', 'gray');
 
       $("#main_cate").change(function(){
         if($("#main_cate Option:selected").val() == 0){
           var html = "";
           $("#mid_cate").empty().append(html);
           $("#small_cate").empty().append(html);
+
+          $('#mid_cate').attr('disabled', 'true');
+          $('#mid_cate').css('background-color', 'gray');
+          $('#small_cate').attr('disabled', 'true');
+          $('#small_cate').css('background-color', 'gray');
+
           $("#aa").css("display","block");
           $("#bb").css("display","none");
           $("#cc").css("display","none");
@@ -29,8 +45,13 @@
           html += '<option value=1> TV </option>';
           html += '<option value=2> 휴대폰 </option>';
           $("#mid_cate").empty().append(html);
+
           $("#aa").css("display","none");
           $("#bb").css("display","block");
+
+          $('#mid_cate').removeAttr('disabled');
+          $('#mid_cate').css('background-color', 'white');
+
           $("#mid_cate").change(function(){
             if($("#mid_cate Option:selected").val() == 0){
               var html = "";
@@ -44,6 +65,9 @@
               $("#small_cate").empty().append(html);
               $("#bb").css("display","none");
               $("#cc").css("display","block");
+              $('#small_cate').removeAttr('disabled');
+              $('#small_cate').css('background-color', 'white');
+
             }
             else if($("#mid_cate Option:selected").val() == 2){
               console.log("2");
@@ -53,6 +77,8 @@
               $("#small_cate").empty().append(html);
               $("#bb").css("display","none");
               $("#cc").css("display","block");
+              $('#small_cate').removeAttr('disabled');
+              $('#small_cate').css('background-color', 'white');
             }
           });
         }
@@ -62,6 +88,10 @@
           html += '<option value=1> 의자 </option>';
           html += '<option value=2> 책상 </option>';
           $("#mid_cate").empty().append(html);
+
+          $('#mid_cate').removeAttr('disabled');
+          $('#mid_cate').css('background-color', 'white');
+
           $("#mid_cate").change(function(){
             if($("#mid_cate Option:selected").val() == 0){
               var html = "";
@@ -96,7 +126,7 @@
   <div class="main_container">
     <div class="nav_container">
       <nav>
-        <span>BOM</span>
+        <span id="nav_id">BOM</span>
         <ul>
           <li><a href="./Main.html"> 조회 </a></li>
           <li><a href="./bom_add.html"> 등록 </a></li>
@@ -143,18 +173,18 @@
                   <legend> 대분류 </legend>
                   <form action="" method="post">
                     <div class="out" style="border-top: 1px solid red;">
-                      <div class="a">
+                      <div class="cate_title">
                         <label for="code" style="width:100%;">품명</label>
                       </div>
-                      <div class="b">
+                      <div class="cate_input">
                         <input type="text" id="code" >
                       </div>
                     </div>
                     <div class="out">
-                      <div class="a">
+                      <div class="cate_title">
                         <label for="code" style="">품목코드</label>
                       </div>
-                      <div class="b">
+                      <div class="cate_input">
                         <input type="text" id="code" >
                       </div>
                     </div>
@@ -170,31 +200,31 @@
                 <div id="bb">
                 <div class="contents">
                 <fieldset>
-                  <legend> 중분류 </legend>
+                  <legend> 대분류 > 중분류 </legend>
                   <form action="" method="post">
                     <div class="out" style="border-top: 1px solid red;">
-                      <div class="a">
+                      <div class="cate_title">
                         <label for="code" style="width:100%;">품명</label>
                       </div>
-                      <div class="b">
+                      <div class="cate_input">
                         <input type="text" id="code" >
                       </div>
                     </div>
                     <div class="out">
-                      <div class="a">
+                      <div class="cate_title">
                         <label for="code" style="">품목코드</label>
                       </div>
-                      <div class="b">
+                      <div class="cate_input">
                         <input type="text" id="code" >
                       </div>
                     </div>
                     <div class="out">
-                      <div class="a">
+                      <div class="cate_title">
                         <label for="standard">규격</label>
                       </div>
-                      <div class="c">
-                        <input type="text" name="standard" class="c">
-                        <select class="d" name="">
+                      <div class="cate_input">
+                        <input type="text" name="standard" class="text">
+                        <select class="" name="">
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
@@ -202,11 +232,11 @@
                       </div>
                     </div>
                     <div class="out">
-                      <div class="a">
+                      <div class="cate_title">
                         <label for="standard">단위</label>
                       </div>
-                      <div class="c">
-                        <input type="text" name="standard" class="c">
+                      <div class="cate_input">
+                        <input type="text" name="standard" class="text">
                         <select class="d" name="">
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -227,47 +257,47 @@
                 <div id="cc">
                 <div class="contents">
                   <fieldset>
-                    <legend> 소분류 </legend>
+                    <legend> 대분류 > 중분류 > 소분류 </legend>
                     <form action="" method="post">
                       <div class="out" style="border-top: 1px solid red;">
-                        <div class="a">
+                        <div class="cate_title">
                           <label for="code" style="width:100%;">품명</label>
                         </div>
-                        <div class="b">
+                        <div class="cate_input">
                           <input type="text" id="code" >
                         </div>
                       </div>
                       <div class="out">
-                        <div class="a">
+                        <div class="cate_title">
                           <label for="code" style="">품목코드</label>
                         </div>
-                        <div class="b">
+                        <div class="cate_input">
                           <input type="text" id="code" >
                         </div>
                       </div>
                       <div class="out">
-                        <div class="a">
+                        <div class="cate_title">
                           <label for="code" style="">소요수량</label>
                         </div>
-                        <div class="b">
+                        <div class="cate_input">
                           <input type="text" id="code" >
                         </div>
                       </div>
                       <div class="out">
-                        <div class="a">
+                        <div class="cate_title">
                           <label for="code" style="">재고수량</label>
                         </div>
-                        <div class="b">
+                        <div class="cate_input">
                           <input type="text" id="code">
                         </div>
                       </div>
                       <div class="out">
-                        <div class="a">
+                        <div class="cate_title">
                           <label for="standard">규격</label>
                         </div>
-                        <div class="c">
-                          <input type="text" name="standard" class="c">
-                          <select class="d" name="">
+                        <div class="cate_input">
+                          <input type="text" name="standard" class="text">
+                          <select class="" name="">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -275,12 +305,12 @@
                         </div>
                       </div>
                       <div class="out">
-                        <div class="a">
+                        <div class="cate_title">
                           <label for="standard">단위</label>
                         </div>
-                        <div class="c">
-                          <input type="text" name="standard" class="c">
-                          <select class="d" name="">
+                        <div class="cate_input">
+                          <input type="text" name="standard" class="text">
+                          <select class="" name="">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -295,8 +325,6 @@
                   </fieldset>
                 </div>
                 </div>
-
-
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 html, body{
   padding: 0;
   margin: 0;
+  overflow: scroll;
 }
 .title_outer_container{
   width: 90%;
@@ -35,27 +36,28 @@ html, body{
   padding-right: 20px;
 }
 
-.a{
+.cate_title{
   float: left;
   width: 20%;
 }
-.b{
+
+.cate_input{
   float: left;
   height: 20px;
   width: 80%;
 }
-.b input{
-    width: calc(95% + 10px);
+.cate_input input{
+    width: 95%;
     float: left;
 }
-.c{
+.cate_input .text{
   float: left;
-  width: 80%;
+  width: 70%;
 }
-.d{
+.cate_input select{
   float: left;
   margin-left: 10px;
-  width: 15%;
+  width: 20%;
 }
 button{
   width: 100px;
@@ -80,6 +82,6 @@ button{
 }
 .contents{
   display: inline-block;
-  width: 50%;
+  min-width: 70%;
 
 }

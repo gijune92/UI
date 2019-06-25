@@ -4,55 +4,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/commons.css">
+  <link rel="stylesheet" media="only screen and (max-width: 768px)" href="./css/main_768.css">
+	<link rel="stylesheet" media="only screen and (max-width: 576px)" href="./css/main_576.css">
+  <link rel="stylesheet" media="only screen and (max-width: 736px) " href="./css/main_414.css">
   <title>Document</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <style>
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-
-  /* Modal Content */
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    height: 80%;
-  }
-
-  /* The Close Button */
-  .close .update {
-    color: #aaaaaa;
-    font-size: 28px;
-    font-weight: bold;
-
-  }
-
-  .close:hover, .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      height: 80%;
+    }
+    /* The Close Button */
+    .close .update {
+      color: #aaaaaa;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover, .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
   </style>
   <script>
   $(document).ready(function(){
+    $('#mid_cate').attr('disabled', 'true');
+    $('#mid_cate').css('background-color', 'gray');
+    $('#small_cate').attr('disabled', 'true');
+    $('#small_cate').css('background-color', 'gray');
+
+    $('#main_cate').change(function(){
+      if($('#main_cate Option:selected').val() == 1){
+        $('#mid_cate').attr('disabled', 'true');
+        $('#mid_cate').css('background-color', 'gray');
+        $('#small_cate').attr('disabled', 'true');
+        $('#small_cate').css('background-color', 'gray');
+        var html = "";
+        $('#mid_cate').empty().append(html);
+        $('#small_cate').empty().append(html);
+      }
+      else if($('#main_cate Option:selected').val() == 2){
+        $('#mid_cate').removeAttr('disabled');
+        $('#mid_cate').css('background-color', 'white');
+        var html = '<option value=0 > a </option>';
+        html += '<option value=1 > b </option>';
+        html += '<option value=2 > c </option>';
+        $('#mid_cate').append(html);
+        $('#mid_cate').change(function(){
+          if($('#mid_cate Option:selected').val() == 1){
+            $('#small_cate').removeAttr('disabled');
+            $('#small_cate').css('background-color', 'white');
+            var html = '<option value=0 > aaaa </option>';
+            html += '<option value=1 > bbbb </option>';
+            html += '<option value=2 > cccc </option>';
+            $('#small_cate').empty().append(html);
+          }
+        })
+      }
+    });
+
+
+
     // Get the modal
     var modal = document.getElementById("myModal");
     // Get the button that opens the modal
     var btn = document.getElementById("myBtn");
     // Get the <span> element that closes the modal
-    $("#myBtn").click(function(e){
+    $("#myBtn").click(function(){
        modal.style.display="block";
     })
     $(".close").click(function(){
@@ -68,7 +104,7 @@
   <div class="main_container">
     <div class="nav_container">
       <nav>
-        <span>BOM</span>
+        <span id="nav_id">BOM</span>
         <ul>
           <li><a href="./Main.html"> 조회 </a></li>
           <li><a href="./bom_add.html"> 등록 </a></li>
@@ -100,16 +136,131 @@
             </select>
           </div>
         </div>
-        <!--
-        <div class="btn_container">
-          <button type="button" name="button">조회</button>
-        </div>
-      -->
       </div>
 
       <table id="data_table" class="" style="width: 80%; margin-left:10%;">
-      <thead style="background-color: black; color: white">
-        <tr>
+        <thead style="background-color: black; color: white">
+          <tr>
+              <th>index</th>
+              <th>품명</th>
+              <th>품목코드</th>
+              <th>소요수량</th>
+              <th>재고수량</th>
+              <th>규격</th>
+              <th>단위</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #d4d4aa">
+              <th>1</th>
+              <td>원숭이눈알</td>
+              <td id="myBtn">C-0001</a></td>
+              <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span id="modal_title">index</span><span id="modal_data">1</span>
+                  <span id="modal_title">품명</span><span id="modal_data">원숭이눈알</span>
+                  <span id="modal_title">품목코드</span><span id="modal_data">C-0001</span>
+                  <span id="modal_title">소요수량</span><span id="modal_data">2</span>
+                  <span id="modal_title">재고수량</span><span id="modal_data">999999</span>
+                  <span id="modal_title">규격</span><span id="modal_data">3cm</span>
+                  <span id="modal_title">단위</span><span id="modal_data">1EA</span>
+                  <span style="width: 100%;">
+                    <button class="update">수정</button>
+                    <button class="close">닫기</button>
+                  </span>
+                </div>
+              </div>
+              <td>2</td>
+              <td>999999</td>
+              <td>3cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #ffffff">
+              <th>2</th>
+              <td>원숭이코</td>
+              <td>C-0002</td>
+              <td>1</td>
+              <td>50000</td>
+              <td>2cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #d4d4aa">
+              <th>1</th>
+              <td>원숭이눈알</td>
+              <td>C-0001</td>
+              <td>2</td>
+              <td>999999</td>
+              <td>3cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #ffffff">
+              <th>2</th>
+              <td>원숭이코</td>
+              <td>C-0002</td>
+              <td>1</td>
+              <td>50000</td>
+              <td>2cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #d4d4aa">
+              <th>1</th>
+              <td>원숭이눈알</td>
+              <td>C-0001</td>
+              <td>2</td>
+              <td>999999</td>
+              <td>3cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #ffffff">
+              <th>2</th>
+              <td>원숭이코</td>
+              <td>C-0002</td>
+              <td>1</td>
+              <td>50000</td>
+              <td>2cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #d4d4aa">
+              <th>1</th>
+              <td>원숭이눈알</td>
+              <td>C-0001</td>
+              <td>2</td>
+              <td>999999</td>
+              <td>3cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #ffffff">
+              <th>2</th>
+              <td>원숭이코</td>
+              <td>C-0002</td>
+              <td>1</td>
+              <td>50000</td>
+              <td>2cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #d4d4aa">
+              <th>1</th>
+              <td>원숭이눈알</td>
+              <td>C-0001</td>
+              <td>2</td>
+              <td>999999</td>
+              <td>3cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #ffffff">
+              <th>2</th>
+              <td>원숭이코</td>
+              <td>C-0002</td>
+              <td>1</td>
+              <td>50000</td>
+              <td>2cm</td>
+              <td>1EA</td>
+          </tr>
+
+        </tbody>
+        <tfoot style="background-color:gray;">
+          <tr>
             <th>index</th>
             <th>품명</th>
             <th>품목코드</th>
@@ -117,129 +268,9 @@
             <th>재고수량</th>
             <th>규격</th>
             <th>단위</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="background-color: #d4d4aa">
-            <th>1</th>
-            <td>원숭이눈알</td>
-            <td id="myBtn">C-0001</a></td>
-            <div id="myModal" class="modal">
-              <!-- Modal content -->
-              <div class="modal-content">
-                <span id="modal_title">index</span><span id="modal_data">1</span>
-                <span id="modal_title">품명</span><span id="modal_data">원숭이눈알</span>
-                <span id="modal_title">품목코드</span><span id="modal_data">C-0001</span>
-                <span id="modal_title">소요수량</span><span id="modal_data">2</span>
-                <span id="modal_title">재고수량</span><span id="modal_data">999999</span>
-                <span id="modal_title">규격</span><span id="modal_data">3cm</span>
-                <span id="modal_title">단위</span><span id="modal_data">1EA</span>
-                <span style="width: 100%;">
-                  <button class="update">수정</button>
-                  <button class="close">닫기</button>
-                </span>
-              </div>
-            </div>
-            <td>2</td>
-            <td>999999</td>
-            <td>3cm</td>
-            <td>1EA</td>
-        </tr>
-        <tr style="background-color: #ffffff">
-            <th>2</th>
-            <td>원숭이코</td>
-            <td>C-0002</td>
-            <td>1</td>
-            <td>50000</td>
-            <td>2cm</td>
-            <td>1EA</td>
-        </tr>
-        <tr style="background-color: #d4d4aa">
-            <th>1</th>
-            <td>원숭이눈알</td>
-            <td>C-0001</td>
-            <td>2</td>
-            <td>999999</td>
-            <td>3cm</td>
-            <td>1EA</td>
-        </tr>
-        <tr style="background-color: #ffffff">
-            <th>2</th>
-            <td>원숭이코</td>
-            <td>C-0002</td>
-            <td>1</td>
-            <td>50000</td>
-            <td>2cm</td>
-            <td>1EA</td>
-        </tr>
-        <tr style="background-color: #d4d4aa">
-            <th>1</th>
-            <td>원숭이눈알</td>
-            <td>C-0001</td>
-            <td>2</td>
-            <td>999999</td>
-            <td>3cm</td>
-            <td>1EA</td>
-        </tr>
-        <tr style="background-color: #ffffff">
-            <th>2</th>
-            <td>원숭이코</td>
-            <td>C-0002</td>
-            <td>1</td>
-            <td>50000</td>
-            <td>2cm</td>
-            <td>1EA</td>
-        </tr>
-        <tr style="background-color: #d4d4aa">
-            <th>1</th>
-            <td>원숭이눈알</td>
-            <td>C-0001</td>
-            <td>2</td>
-            <td>999999</td>
-            <td>3cm</td>
-            <td>1EA</td>
-        </tr>
-        <tr style="background-color: #ffffff">
-            <th>2</th>
-            <td>원숭이코</td>
-            <td>C-0002</td>
-            <td>1</td>
-            <td>50000</td>
-            <td>2cm</td>
-            <td>1EA</td>
-        </tr>
-        <tr style="background-color: #d4d4aa">
-            <th>1</th>
-            <td>원숭이눈알</td>
-            <td>C-0001</td>
-            <td>2</td>
-            <td>999999</td>
-            <td>3cm</td>
-            <td>1EA</td>
-        </tr>
-        <tr style="background-color: #ffffff">
-            <th>2</th>
-            <td>원숭이코</td>
-            <td>C-0002</td>
-            <td>1</td>
-            <td>50000</td>
-            <td>2cm</td>
-            <td>1EA</td>
-        </tr>
-
-      </tbody>
-      <tfoot style="background-color:gray;">
-        <tr>
-          <th>index</th>
-          <th>품명</th>
-          <th>품목코드</th>
-          <th>소요수량</th>
-          <th>재고수량</th>
-          <th>규격</th>
-          <th>단위</th>
-        </tr>
-      </tfoot>
-    </table>
+          </tr>
+        </tfoot>
+      </table>
 
     </div>
   </div>
